@@ -8,10 +8,6 @@
     - [Folder Structure](#folder-structure)
   - [Design](#design)
   - [PLC Mappings](#plc-mappings)
-    - [Power (10.10.10.1)](#power-1010101)
-    - [Hospital (10.10.10.2)](#hospital-1010102)
-    - [Police/Fire (10.10.10.3)](#policefire-1010103)
-    - [Traffic (10.10.10.4)](#traffic-1010104)
 
 ## The Team
 
@@ -47,38 +43,4 @@ Game: [Google Sheet](https://docs.google.com/spreadsheets/d/1fAyjl4c2pVBRPMtv6dN
 
 ## PLC Mappings
 
-### Power (10.10.10.1)
-
-| Coil | Mapping           |
-| ---- | ----------------- |
-| 0    | Business District |
-| 1    | Hospital          |
-| 2    | Police / Fire     |
-| 3    | Industrial Area   |
-| 4    | University        |
-| 5    | Residential       |
-
-### Hospital (10.10.10.2)
-
-| Coil | Mapping           |
-| ---- | ----------------- |
-| 0    | Power             |
-| 1    | Generator Running |
-
-### Police/Fire (10.10.10.3)
-
-| Coil | Mapping           |
-| ---- | ----------------- |
-| 0    | Power             |
-| 1    | Generator Running |
-
-### Traffic (10.10.10.4)
-
-| Coil | Mapping         |
-| ---- | --------------- |
-| 0    | Green Light NS  |
-| 1    | Yellow Light NS |
-| 2    | Red Light NS    |
-| 3    | Green Light EW  |
-| 4    | Yellow Light EW |
-| 5    | Red Light EW    |
+> WIP
