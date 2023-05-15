@@ -32,6 +32,7 @@ if __name__ == "__main__":
     if CLIENT.connect():
         print("Connected to Modbus server")
     else:
+        CLIENT.close()
         print("Failed to connect to Modbus server")
         exit()
 
@@ -43,11 +44,20 @@ if __name__ == "__main__":
         option = int(input("Enter option: "))
 
         if OPTIONS[option - 1] == "Exit":
+            CLIENT.close()
             exit()
         elif OPTIONS[option - 1] == "Read Coil":
             address = int(input("Enter address: "))
-            print(CLIENT.read_coils(address, 1).bits[0])
+            print("=====================================")
+            print(f"Coil {address} is {CLIENT.read_coils(address, 1).bits[0]}")
+            print("=====================================")
+
         elif OPTIONS[option - 1] == "Write Coil":
             address = int(input("Enter address: "))
             value = max(0, min(int(input("Enter value: ")), 1))
-            CLIENT.write_coil(address, value)
+
+            print("=====================================")
+            print(f"Writing {value} to address {address}")
+            print("=====================================")
+
+            CLIENT.write_coil(address, value == 1)
