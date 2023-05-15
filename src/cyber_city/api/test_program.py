@@ -59,7 +59,7 @@ if __name__ == "__main__":
             print("=====================================")
         elif OPTIONS[option - 1] == "Write Coil":
             address = int(input("Enter address: "))
-            value = max(0, min(int(input("Enter value: ")), 1))
+            value = max(0, min(int(input("Enter value (0 or 1): ")), 1))
 
             print("=====================================")
             print(f"Writing {value} to address {address}")
@@ -71,7 +71,7 @@ if __name__ == "__main__":
             end_address = int(input("Enter end address: "))
             length_addresses = end_address - start_address + 1
 
-            value = max(0, min(int(input("Enter value: ")), 1))
+            value = max(0, min(int(input("Enter value (0 or 1): ")), 1))
             value = value == 1
 
             CLIENT.write_coils(start_address, [value] * length_addresses)
