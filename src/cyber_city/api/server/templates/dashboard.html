@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Cyber City Modbus Controller
+        </title>
+
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin: auto;
+                width: 100%;
+            }
+
+            .true {
+                background-color: green;
+            }
+            .false {
+                background-color: red;
+            }
+
+            .coil_button_list {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .coil_button {
+                width: 10rem;
+                height: 10rem;
+                margin: 1.5rem;
+                border-radius: 25%;
+                border: 0px;
+                font: 20px "Arial";
+                color: white;
+                cursor: pointer;
+            }   
+
+            h1 {
+                text-align: center;
+
+                font: 50px "Arial";
+            }
+
+            button {
+                width: 10rem;
+                height: 5rem;
+                margin: 0rem;
+                border-radius: 25%;
+                border: 0px;
+                font: 20px "Arial";
+                color: black;
+                cursor: pointer;
+            }
+            button:hover {
+                filter: brightness( 0.9 );
+            }
+
+        </style>
+
+        
+    </head>
+
+    <body>
+        <h1>{{ip}}</h1>
+        <button onclick="get_all()">Update All</button>
+        <div class="coil_button_list">
+        {% for a in coils %}
+        <button onclick="clicked(event)" class="coil_button">{{a}}</button>
+        {% endfor %}
+        </div>
+
+        <script defer>
+            buttons = [ ...document.getElementsByClassName( "coil_button" ) ];
+
+            async function get_coil (coil)
+            {
+                return fetch("/coil", {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "coil": coil,
+                        "ip": "{{ip}}"
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    return data
+                })
+            }
+
+            async function get_all() {
+                for (let i = 0; i < buttons.length; i++) {
+                    get_coil(i).then((response) => {
+                        if ( response.value )
+                        {
+                            buttons[i].classList.add( "true" );
+                            buttons[i].classList.remove( "false" );
+                        } else
+                        {
+                            buttons[i].classList.add( "false" );
+                            buttons[i].classList.remove( "true" );
+                        }
+                    })
+                }
+            }
+
+            async function clicked(event) {
+                button = event.target
+                coil = button.innerHTML
+                coil_state = button.classList.contains("true")
+
+                new_state = !coil_state
+
+                fetch("/coil", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "coil": coil,
+                        "ip": "{{ip}}"
+                    },
+                    body: JSON.stringify({
+                        "value": new_state
+                    })
+                })
+                .finally(() => {
+                    get_coil(coil).then((response) => {
+                        if ( response.value )
+                        {
+                            button.classList.add( "true" );
+                            button.classList.remove( "false" );
+                        } else
+                        {
+                            button.classList.add( "false" );
+                            button.classList.remove( "true" );
+                        }
+                    })
+                })
+            }
+        </script>
+    </body>
+</html>
