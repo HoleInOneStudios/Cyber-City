@@ -72,6 +72,8 @@
     <body>
         <h1>{{ip}}</h1>
         <button onclick="get_all()">Update All</button>
+        <button onclikc="set_all_on()">Set All On</button>
+        <button onclikc="set_all_off()">Set All Off</button>
         <div class="coil_button_list">
         {% for a in coils %}
         <button onclick="clicked(event)" class="coil_button">{{a}}</button>
@@ -80,6 +82,35 @@
 
         <script defer>
             buttons = [ ...document.getElementsByClassName( "coil_button" ) ];
+
+            async function set_all_off() {
+                for (let i = 0; i < buttons.length; i++) {
+                    fetch("/coil", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "coil": i,
+                            "ip": "{{ip}}"
+                        },
+                        body: JSON.stringify({
+                            "value": false
+                        })
+                    })
+                    .finally(() => {
+                        get_coil(i).then((response) => {
+                            if ( response.value )
+                            {
+                                buttons[i].classList.add( "true" );
+                                buttons[i].classList.remove( "false" );
+                            } else
+                            {
+                                buttons[i].classList.add( "false" );
+                                buttons[i].classList.remove( "true" );
+                            }
+                        })
+                    })
+                }
+            }
 
             async function get_coil (coil)
             {

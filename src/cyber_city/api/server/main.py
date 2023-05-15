@@ -16,22 +16,13 @@ app = Flask(__name__)
 
 
 @app.route("/")
-@app.route("/<max_coils>")
-@app.route("/<max_coils>/<ip>")
-def main(ip_address="127.0.0.1", max_coils=50) -> str:
-    """
-    the main dashboard route for the web server
-
-    Args:
-        ip (str, optional): _description_. Defaults to "127.0.0.1".
-        max_coils (int, optional): _description_. Defaults to 50.
-
-    Returns:
-        (str): html result
-    """
+@app.route("/<input_coils>/")
+@app.route("/<input_coils>/<ip_address>")
+def main(input_coils=50, ip_address="127.0.0.1") -> str:
+    print(ip_address, input_coils)
     coils = {}
-    max_coils = int(max_coils)
-    for i in range(0, max_coils + 1):
+    input_coils = int(input_coils)
+    for i in range(0, int(input_coils) + 1):
         coils[i] = False
     return render_template("dashboard.html", ip=ip_address, coils=coils)
 
