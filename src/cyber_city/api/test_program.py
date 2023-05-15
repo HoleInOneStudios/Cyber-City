@@ -11,7 +11,13 @@ from pymodbus.client import ModbusTcpClient as ModbusClient
 IP: str
 CLIENT: ModbusClient
 ACTIVE: bool = True
-OPTIONS: list = ["Read Coil", "Write Coil", "Exit"]
+OPTIONS: list = [
+    "Read Coil",
+    "Write Coil",
+    "Read Many Coils",
+    "Write Many Coils",
+    "Exit",
+]
 
 if __name__ == "__main__":
     # Get IP address from user
@@ -51,7 +57,6 @@ if __name__ == "__main__":
             print("=====================================")
             print(f"Coil {address} is {CLIENT.read_coils(address, 1).bits[0]}")
             print("=====================================")
-
         elif OPTIONS[option - 1] == "Write Coil":
             address = int(input("Enter address: "))
             value = max(0, min(int(input("Enter value: ")), 1))
@@ -61,3 +66,26 @@ if __name__ == "__main__":
             print("=====================================")
 
             CLIENT.write_coil(address, value == 1)
+        elif OPTIONS[option - 1] == "Write Many Coils":
+            start_address = int(input("Enter start address: "))
+            end_address = int(input("Enter end address: "))
+            length_addresses = end_address - start_address + 1
+
+            value = max(0, min(int(input("Enter value: ")), 1))
+            value = value == 1
+
+            CLIENT.write_coils(start_address, [value] * length_addresses)
+            print("=====================================")
+            print(f"Wrote {value} to addresses {start_address} to {end_address}")
+            print("=====================================")
+        elif OPTIONS[option - 1] == "Read Many Coils":
+            start_address = int(input("Enter start address: "))
+            end_address = int(input("Enter end address: "))
+            length_addresses = end_address - start_address + 1
+
+            result = CLIENT.read_coils(start_address, length_addresses).bits
+
+            print("=====================================")
+            for i in enumerate(result):
+                print(f"Coil {start_address + i[0]} is {i[1]}")
+            print("=====================================")
