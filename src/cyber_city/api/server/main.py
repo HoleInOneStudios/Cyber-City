@@ -5,17 +5,15 @@ import json
 app = Flask(__name__)
 
 
-coils = {}
-
-max = 25
-for i in range(0, max - 1):
-    coils[i] = False
-
-
 @app.route("/")
-@app.route("/<ip>")
-def main(ip="127.0.0.1"):
-    return render_template("dashboard.html", coils=coils, ip=ip)
+@app.route("/<max_coils>")
+@app.route("/<max_coils>/<ip>")
+def main(ip="127.0.0.1", max_coils=50):
+    coils = {}
+    max = int(max_coils)
+    for i in range(0, max + 1):
+        coils[i] = False
+    return render_template("dashboard.html", ip=ip, coils=coils)
 
 
 @app.route("/coil", methods=["POST", "GET"])
