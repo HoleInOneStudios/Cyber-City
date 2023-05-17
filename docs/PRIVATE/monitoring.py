@@ -46,10 +46,6 @@ def parse_st(st_file):
     return debug_vars
 
 
-def cleanup():
-    del debug_vars[:]
-
-
 def modbus_monitor():
     global mb_client
     for debug_data in debug_vars:
