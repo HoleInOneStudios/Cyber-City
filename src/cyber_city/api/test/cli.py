@@ -181,17 +181,30 @@ if __name__ == "__main__":
 
     client = ModbusClient(args.ip_address, port=502)
 
+    if not args.end > args.start:
+        args.end = args.start
+
     if args.modbus_method == "read_coils":
-        print(read_coils(client, args.start, args.end - args.start))
+        print(read_coils(client, args.start, args.end))
     elif args.modbus_method == "write_coils":
+        if args.end == 0:
+            args.end = args.start + 1
         write_coils(client, args.start, args.end, args.value)
     elif args.modbus_method == "read_discrete_inputs":
-        print(read_discrete_inputs(client, args.start, args.end - args.start + 1))
+        if args.end == 0:
+            args.end = args.start + 1
+        print(read_discrete_inputs(client, args.start, args.end))
     elif args.modbus_method == "read_input_registers":
-        print(read_input_registers(client, args.start, args.end - args.start + 1))
+        if args.end == 0:
+            args.end = args.start + 1
+        print(read_input_registers(client, args.start, args.end))
     elif args.modbus_method == "read_holding_register":
-        print(read_holding_register(client, args.start, args.end - args.start + 1))
+        if args.end == 0:
+            args.end = args.start + 1
+        print(read_holding_register(client, args.start, args.end))
     elif args.modbus_method == "write_holding_register":
+        if args.end == 0:
+            args.end = args.start + 1
         write_holding_register(client, args.start, args.value)
     else:
         print("Invalid modbus method")
