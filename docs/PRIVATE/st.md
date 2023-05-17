@@ -109,10 +109,7 @@ Red_Light_EW_3
 TEST_ALL
 RUN
 
-R_TRIG1
-R_TRIG2
-R_TRIG3
-R_TRIG4
+
 
 ```
 
