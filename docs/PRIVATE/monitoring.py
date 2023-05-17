@@ -11,12 +11,13 @@ class debug_var:
     value = 0
 
 
+debug_vars = []
 monitor_active = False
 mb_client = None
 
 
 def parse_st(st_file):
-    debug_vars = []
+    global debug_vars
     filepath = "./st_files/" + st_file
 
     st_program = open(filepath, "r")
@@ -38,12 +39,15 @@ def parse_st(st_file):
                 debug_vars.append(debug_data)
 
     # for debugs in debug_vars:
-    #     print('Name: ' + debugs.name)
-    #     print('Location: ' + debugs.location)
-    #     print('Type: ' + debugs.type)
-    #     print('')
-    #
+    #     print("Name: " + debugs.name)
+    #     print("Location: " + debugs.location)
+    #     print("Type: " + debugs.type)
+    #     print("")
     return debug_vars
+
+
+def cleanup():
+    del debug_vars[:]
 
 
 def modbus_monitor():

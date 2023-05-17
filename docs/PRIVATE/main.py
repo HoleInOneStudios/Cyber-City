@@ -1,6 +1,6 @@
 import os
 
-from monitoring import parse_st
+from monitoring import parse_st, cleanup
 
 
 def get_addresses(b):
@@ -104,3 +104,5 @@ for a in sts:
     for i in results_sorted:
         print(i)
     print("====================================")
+
+    cleanup()
