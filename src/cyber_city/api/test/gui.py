@@ -61,9 +61,10 @@ def send():
 
     output_text.delete("1.0", tk.END)
     temp_start = start_addr
-    for i in result:
-        output_text.insert(tk.END, f"{temp_start}: {i}\n")
-        temp_start += 1
+    if result:
+        for i in result:
+            output_text.insert(tk.END, f"{temp_start}: {i}\n")
+            temp_start += 1
 
 
 button_send = tk.Button(window, text="Send", command=send)

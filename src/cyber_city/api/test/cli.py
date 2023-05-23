@@ -117,6 +117,8 @@ def write_holding_register(client: ModbusClient, start_addr: int, value: int) ->
 
 
 def run(ip_address, modbus_method, start, end, value):
+    print(ip_address, modbus_method, start, end, value)
+
     client = ModbusClient(ip_address, port=502)
 
     if not end > start:

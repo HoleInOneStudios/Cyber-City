@@ -19,3 +19,34 @@ traffic lights
 
 ===============================================================
 
+SUBSTATION
+
+16 - (power generator)
+24 - (power generator)
+32 - (grid connection)
+
+40 - train and fair grounds
+48 - still nothing
+56 - traffic lights
+64 - city block
+72 - fire and police station
+80 - still nothing
+
+TRAFFIC LIGHTS
+
+0 - <Green_Light_NS>
+1 - <Yellow_Light_NS>
+2 - <Red_Light_NS>
+3 - <Green_Light_EW>
+4 - <Yellow_Light_EW>
+5 - <Red_Light_EW>
+24 - (Blink_Red_NS)
+32 - (Blink_Red_EW)
+40 - (Blink_Red_All)
+48 - (Blink_Yellow_All)
+56 - (TEST_ALL)
+64 - (RUN)
+0
+1
+2
+3
