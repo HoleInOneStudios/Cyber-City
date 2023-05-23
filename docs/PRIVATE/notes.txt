@@ -15,3 +15,7 @@ traffic lights
 - 48 - same as previous
 - 56 - possibly all on to test light connections (only yellow and green from police side lit up)
 - 64 - operate like normal light but again only 2 are working
+
+
+===============================================================
+
