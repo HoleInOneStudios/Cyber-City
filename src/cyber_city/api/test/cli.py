@@ -123,27 +123,39 @@ def run(ip_address, modbus_method, start, end, value):
         end = start
 
     if modbus_method == "read_coils":
-        print(read_coils(client, start, end))
+        result = read_coils(client, start, end)
+        print(result)
+        return result
     elif modbus_method == "write_coils":
         if end == 0:
             end = start + 1
-        write_coils(client, start, end, value)
+        result = write_coils(client, start, end, value)
+        print(result)
+        return result
     elif modbus_method == "read_discrete_inputs":
         if end == 0:
             end = start + 1
-        print(read_discrete_inputs(client, start, end))
+        result = read_discrete_inputs(client, start, end)
+        print(result)
+        return result
     elif modbus_method == "read_input_registers":
         if end == 0:
             end = start + 1
-        print(read_input_registers(client, start, end))
+        result = read_input_registers(client, start, end)
+        print(result)
+        return result
     elif modbus_method == "read_holding_register":
         if end == 0:
             end = start + 1
-        print(read_holding_register(client, start, end))
+        result = read_holding_register(client, start, end)
+        print(result)
+        return result
     elif modbus_method == "write_holding_register":
         if end == 0:
             end = start + 1
-        write_holding_register(client, start, value)
+        result = write_holding_register(client, start, value)
+        print(result)
+        return result
     else:
         print("Invalid modbus method")
 
