@@ -1,32 +1,17 @@
-from cyber_city.game import Ability, Role
+from cyber_city.game import *
 
-# Defining the Defenders Abilities
-ENC = Ability("Data Encryption", 300, 10)
-AMAL = Ability("Anti-Malware", 600, 30)
-FWAL = Ability("Firewall", 600, 30)
-TRU = Ability("Trust Zones", 400, 15)
-HON = Ability("Honey Pot", 500, 20)
-MULAUTH = Ability("Multifactor Authentication", 300, 10)
-AUDIT = Ability("Audit Devices & Assets", 500, 20)
+motd = Skill("Man in the Middle", "(Steal Data)", 300, 20)
+malw = Skill("Malware", "(Steal Data)", 600, 60)
+ddos = Skill("DDoS", "(Control)", 600, 60)
+fish = Skill("Phishing", "(Steal Data)", 400, 30)
+troj = Skill("Trojan", "(Control)", 500, 40)
+pswd = Skill("Password Attack", "(Steal Data)", 300, 20)
+rans = Skill("Ransomware", "(Control)", 500, 40)
 
-# Defining the Attackers Abilities
-MITM = Ability("Man in the Middle (Steal Data)", 300, 20)
-MAL = Ability("Malware (Steal Data)", 600, 60)
-DDOS = Ability("DDoS (Control)", 600, 60)
-PHI = Ability("Phishing (Steal Data)", 400, 30)
-TRO = Ability("Trojan (Control)", 500, 40)
-PSWD = Ability("Password Attack (Steal Data)", 300, 20)
-RAN = Ability("Ransomware (Control)", 500, 40)
-
-# Pairing the matchups `defense for attacker`
-MITM.matchup = ENC
-MAL.matchup = AMAL
-DDOS.matchup = FWAL
-PHI.matchup = TRU
-TRO.matchup = HON
-PSWD.matchup = MULAUTH
-RAN.matchup = AUDIT
-
-# Roles
-ATTACKER = Role("Attacker", 5000)
-DEFENDER = Role("Defender", 5000)
+encr = Skill("Data Encryption", "", 300, 10)
+amal = Skill("Anti-Malware", "", 600, 30)
+fwal = Skill("Firewall", "", 600, 30)
+truz = Skill("Trust Zones", "", 400, 15)
+hpot = Skill("Honey Pot", "", 500, 20)
+maut = Skill("Multifactor Authentication", "", 300, 10)
+audt = Skill("Audit Devices & Assets", "", 500, 20)
