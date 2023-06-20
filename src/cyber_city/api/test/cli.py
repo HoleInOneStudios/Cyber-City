@@ -116,7 +116,7 @@ def write_holding_register(client: ModbusClient, start_addr: int, value: int) ->
     return None
 
 
-def run(ip_address, modbus_method, start, end, value):
+def run_modbus(ip_address, modbus_method, start, end, value):
     """
     Run the modbus client. This is the main function that is called from the command line.
 
@@ -243,4 +243,4 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    run(args.ip_address, args.modbus_method, args.start, args.end, args.value)
+    run_modbus(args.ip_address, args.modbus_method, args.start, args.end, args.value)
