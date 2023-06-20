@@ -117,6 +117,19 @@ def write_holding_register(client: ModbusClient, start_addr: int, value: int) ->
 
 
 def run(ip_address, modbus_method, start, end, value):
+    """
+    Run the modbus client. This is the main function that is called from the command line.
+
+    Args:
+        ip_address (str): ip address of the modbus server
+        modbus_method (str): modbus method to use
+        start (int): starting address
+        end (int): ending address
+        value (int): value to write
+
+    Returns:
+        list: list of values
+    """
     print(ip_address, modbus_method, start, end, value)
 
     client = ModbusClient(ip_address, port=502)
@@ -126,25 +139,28 @@ def run(ip_address, modbus_method, start, end, value):
 
     if modbus_method == "read_coils":
         result = read_coils(client, start, end)
-        print(result)
+        print(f"Successfully read coils {start} to {end}")
+        print(f"Result: \n{result}")
         return result
     elif modbus_method == "write_coils":
         if end == 0:
             end = start + 1
-        result = write_coils(client, start, end, value)
-        print(result)
+        write_coils(client, start, end, value)
+        print(f"Successfully wrote {value} to coils {start} to {end}")
         return result
     elif modbus_method == "read_discrete_inputs":
         if end == 0:
             end = start + 1
         result = read_discrete_inputs(client, start, end)
-        print(result)
+        print(f"Successfully read discrete inputs {start} to {end}")
+        print(f"Result: \n{result}")
         return result
     elif modbus_method == "read_input_registers":
         if end == 0:
             end = start + 1
         result = read_input_registers(client, start, end)
-        print(result)
+        print(f"Successfully read input registers {start} to {end}")
+        print(f"Result: \n{result}")
         return result
     elif modbus_method == "read_holding_register":
         if end == 0:
@@ -155,8 +171,8 @@ def run(ip_address, modbus_method, start, end, value):
     elif modbus_method == "write_holding_register":
         if end == 0:
             end = start + 1
-        result = write_holding_register(client, start, value)
-        print(result)
+        write_holding_register(client, start, value)
+        print(f"Successfully wrote {value} to holding register {start}")
         return result
     else:
         print("Invalid modbus method")
