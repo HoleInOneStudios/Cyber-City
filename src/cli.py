@@ -13,6 +13,7 @@ Features:
 """
 
 import argparse
+
 from pymodbus.client import ModbusTcpClient as ModbusClient
 
 
