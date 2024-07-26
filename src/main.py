@@ -4,8 +4,8 @@ by playing cards with offense and defense values. The game consists of multiple 
 player with the most points at the end of the game wins.
 """
 
-import random
 import json
+import random
 
 
 class ROLE:

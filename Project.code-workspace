@@ -24,12 +24,18 @@
       "**/__pycache__": true,
       "**/docs": true,
     },
+    "material-icon-theme.folders.associations": {},
+    "editor.formatOnSave": true,
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 100,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "always"
+    },
     "[python]": {
       "editor.rulers": [
-        100
-      ]
+        100,
+      ],
     },
-    "material-icon-theme.folders.associations": {},
   },
   "tasks": {
     "version": "2.0.0",
