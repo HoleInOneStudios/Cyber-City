@@ -39,6 +39,19 @@ class ROLE:
         else:
             return "Unknown"
 
+    @staticmethod
+    def validate(role: int) -> bool:
+        """
+        Validate the role value.
+
+        Args:
+            role (int): The role value to be validated.
+
+        Returns:
+            bool: True if the role value is valid, False otherwise.
+        """
+        return role == ROLE.OFFENSE or role == ROLE.DEFENSE
+
 
 class Player:
     """
@@ -237,7 +250,7 @@ class Game:
         # Get the player and card based on the role
         _player = self.offense if player_role == ROLE.OFFENSE else self.defense
         _card = _player.hand.pop(card_index)
-        # Add the card to the district
+        # Add the card to the districtw
         self.districts[district_index].add_card(_card)
 
     def game_loop(self) -> int:
