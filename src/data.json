@@ -1,0 +1,35 @@
+{
+    "Districts": [
+        "Business",
+        "Hospital",
+        "Fire/Police",
+        "Industrial",
+        "University",
+        "Housing",
+        "Fort Sam",
+        "Traffic Lights"
+    ],
+    "Cards_good": [
+        {"role": 1, "name":"Firewall", "value": 34, "odds": 1.7},
+        {"role": 1, "name":"Virus Protection", "value": 21, "odds": 1.7},
+        {"role": 1, "name":"Intrusion Detection System", "value": 31, "odds": 1.7},
+        {"role": 1, "name":"User Training", "value": 27, "odds": 1.7},
+        {"role": 1, "name":"Encryption", "value": 25, "odds": 1.7},
+        {"role": 1, "name":"Multi-Factor Authentication", "value": 29, "odds": 1.7},
+        {"role": 1, "name":"Security Audit", "value": 33, "odds": 1.7},
+        {"role": 1, "name":"Patch Management", "value": 26, "odds": 1.7},
+        {"role": 1, "name":"AI Monitoring", "value": 32, "odds": 1.7},
+        {"role": 1, "name":"Network Segmentation", "value": 28, "odds": 1.7}
+    ],
+    "Cards_bad": [
+        {"role": 0, "name":"Phishing", "value": 34, "odds": 1},
+        {"role": 0, "name":"Virus", "value": 29, "odds": 1},
+        {"role": 0, "name":"Malware", "value": 26, "odds": 1},
+        {"role": 0, "name":"Ransomware", "value": 31, "odds": 1},
+        {"role": 0, "name":"DDoS Attack", "value": 28, "odds": 1},
+        {"role": 0, "name":"SQL Injection", "value": 27, "odds": 1},
+        {"role": 0, "name":"Zero-Day Exploit", "value": 30, "odds": 1},
+        {"role": 0, "name":"Brute Force Attack", "value": 25, "odds": 1},
+        {"role": 0, "name":"Trojan", "value": 28, "odds": 1}
+    ]
+}
