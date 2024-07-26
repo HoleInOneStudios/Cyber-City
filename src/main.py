@@ -152,6 +152,31 @@ class Game:
 
         self.current_round = 1
 
+    def validate_district_index(self, district_index: int) -> bool:
+        """
+        Validate the district index.
+
+        Args:
+            district_index (int): The index of the district.
+
+        Returns:
+            bool: True if the district index is valid, False otherwise.
+        """
+        return 0 <= district_index < len(self.districts)
+
+    def validate_card_index(self, player: Player, card_index: int) -> bool:
+        """
+        Validate the card index.
+
+        Args:
+            player (Player): The player who is playing the card.
+            card_index (int): The index of the card in the player's hand.
+
+        Returns:
+            bool: True if the card index is valid, False otherwise.
+        """
+        return 0 <= card_index < len(player.hand)
+
     def new_card(self, role: int) -> Card:
         """
         Gets a randomly weighted card of a specific role from the game's card pool.
@@ -215,6 +240,41 @@ class Game:
         # Add the card to the district
         self.districts[district_index].add_card(_card)
 
+    def game_loop(self) -> int:
+        """
+        This method is the main game loop. It runs the game for multiple rounds until the maximum
+        number of rounds is reached. It then determines the winner based on the points of the
+        offense and defense players
+
+        Returns:
+            int: The role of the winner. Can be either ROLE.OFFENSE, ROLE.DEFENSE, or None in case
+                    of a tie.
+        """
+        while self.current_round <= Game.MAX_ROUNDS:
+            # Reset the ready status of the players and fill their hands with cards
+            self.offense.ready = False
+            self.defense.ready = False
+            self.fill_hands()
+
+            # Play the turns for the offense and defense players. Defense goes first.
+            self.player_turn(self.defense)
+            self.player_turn(self.offense)
+
+            # Calculate the owners of the districts and increase the points of the players
+            self.calculate_districts()
+            self.increase_points()
+            self.current_round += 1
+
+        if self.offense.points > self.defense.points:
+            print("Offense wins!")
+            return ROLE.OFFENSE
+        elif self.defense.points > self.offense.points:
+            print("Defense wins!")
+            return ROLE.DEFENSE
+        else:
+            print("It's a tie!")
+            return None
+
     def player_turn(self, player):
         """
         TODO: Implement the player's turn logic. This method should handle the player's actions
@@ -250,3 +310,5 @@ print(game.defense)
 
 print(game.districts[0])
 print(game.districts[1])
+
+game.game_loop()
