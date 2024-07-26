@@ -279,13 +279,10 @@ class Game:
             self.current_round += 1
 
         if self.offense.points > self.defense.points:
-            print("Offense wins!")
             return ROLE.OFFENSE
         elif self.defense.points > self.offense.points:
-            print("Defense wins!")
             return ROLE.DEFENSE
         else:
-            print("It's a tie!")
             return None
 
     def player_turn(self, player):
@@ -311,17 +308,3 @@ for card in data["Cards_good"]:
 for card in data["Cards_bad"]:
     cards.append(Card(ROLE.OFFENSE, card["name"], card["value"], card["odds"]))
 districts = [District(district) for district in data["Districts"]]
-
-# Create a new game and set the cards and districts
-game = Game()
-game.cards = cards
-game.districts = districts
-game.fill_hands()
-
-print(game.offense)
-print(game.defense)
-
-print(game.districts[0])
-print(game.districts[1])
-
-game.game_loop()
