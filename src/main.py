@@ -202,9 +202,7 @@ class Game:
         """
         Play a card from the player's hand to a district.
 
-        Warning:
-            This method currently does not handle invalid inputs. It is up to the caller to ensure
-            that the inputs are valid
+        !Warning: Method doesn't validate the input. It's ASSUMED that the input is valid.
 
         Args:
             player_role (int): The role of the player. Can be either ROLE.OFFENSE or ROLE.DEFENSE.
@@ -220,10 +218,11 @@ class Game:
     def player_turn(self, player):
         """
         TODO: Implement the player's turn logic. This method should handle the player's actions
+        TODO: `_card_index` and `_district_index` should be set based on the player's actions
         """
         while not player.ready:
-            _card_index = None  # TODO: Get the card index from the player
-            _district_index = None  # TODO: Get the district index from the player
+            _card_index = None
+            _district_index = None
 
             if not player.hand or _card_index is None or _district_index is None:
                 player.ready = True
