@@ -28,20 +28,8 @@
       "editor.rulers": [
         100
       ],
-      "editor.defaultFormatter": "ms-python.black-formatter"
     },
-    "material-icon-theme.folders.associations": {
-      "game": "src",
-      "api": "src",
-      "objects": "src",
-      "cyber_city": "python",
-    },
-    "python.terminal.activateEnvironment": true,
-    "python.terminal.activateEnvInCurrentTerminal": true,
-    "python.terminal.executeInFileDir": true,
-    "python.formatting.provider": "none",
-    "python.analysis.typeCheckingMode": "off",
-    "liveServer.settings.multiRootWorkspaceName": "Source",
+    "material-icon-theme.folders.associations": {},
   },
   "tasks": {
     "version": "2.0.0",
@@ -51,7 +39,7 @@
     "configurations": [
       {
         "name": "Python: Current File",
-        "type": "python",
+        "type": "debugpy",
         "request": "launch",
         "program": "${file}",
         "console": "integratedTerminal",
@@ -59,7 +47,7 @@
       },
       {
         "name": "Python: Main File",
-        "type": "python",
+        "type": "debugpy",
         "request": "launch",
         "program": "${workspaceFolder:Source}/main.py",
         "console": "integratedTerminal",
