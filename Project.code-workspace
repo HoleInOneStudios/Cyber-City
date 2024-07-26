@@ -7,16 +7,26 @@
     {
       "name": "Source",
       "path": "./src"
+    },
+    {
+      "name": "Docs",
+      "path": "./docs"
+    },
+    {
+      "name": "GitHub",
+      "path": "./.github"
     }
   ],
   "settings": {
     "files.exclude": {
-      "**/src": false,
-      "**/__pycache__": true
+      "**/.github": true,
+      "**/src": true,
+      "**/__pycache__": true,
+      "**/docs": true,
     },
     "[python]": {
       "editor.rulers": [
-        80
+        100
       ],
       "editor.defaultFormatter": "ms-python.black-formatter"
     },
