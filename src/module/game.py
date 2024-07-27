@@ -205,8 +205,7 @@ class Game:
         such as handling player input or displaying game state to the user.
 
         Returns:
-            None | Role: In this implementation, nothing is returned. In a custom implementation,
-            the role of the winning player can be returned or printed to the console.
+            None | Role: In this implementation, the role of the winning player is returned.
         """
         while self.current_round <= Game.MAX_ROUNDS:
             self.players[Role.OFFENSE].ready = False
@@ -217,7 +216,7 @@ class Game:
             self.update_points()
             self.current_round += 1
 
-        winner = self.determine_winner()
+        return self.determine_winner()
 
     def determine_winner(self) -> Role:
         """
