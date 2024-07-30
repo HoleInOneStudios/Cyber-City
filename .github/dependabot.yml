@@ -6,11 +6,6 @@
 
 version: 2
 updates:
-  - package-ecosystem: ""
-    directory: "/src" # Location of package manifests for Maven
-    schedule:
-      interval: "weekly" # Update dependencies weekly
-
   - package-ecosystem: "github-actions" # For GitHub Actions
     directory: "/.github/workflows" # Location of GitHub Actions workflows
     schedule:
