@@ -1,21 +1,64 @@
 {
-    "folders": [
-        {
-            "path": ".",
-            "name": "Root"
-        },
-        {
-            "path": "src",
-            "name": "Source Code"
-        },
-        {
-            "path": "docs",
-            "name": "Documentation"
-        },
-        {
-            "path": ".github",
-            "name": "GitHub Configurations"
-        }
+  "folders": [
+    {
+      "name": "Project",
+      "path": "."
+    },
+    {
+      "name": "Source",
+      "path": "./src"
+    },
+    {
+      "name": "Docs",
+      "path": "./docs"
+    },
+    {
+      "name": "GitHub",
+      "path": "./.github"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.github": true,
+      "**/src": true,
+      "**/__pycache__": true,
+      "**/docs": true,
+    },
+    "material-icon-theme.folders.associations": {},
+    "editor.formatOnSave": true,
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 100,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "always"
+    },
+    "[python]": {
+      "editor.rulers": [
+        100,
+      ],
+    },
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": []
+  },
+  "launch": {
+    "configurations": [
+      {
+        "name": "Python: Current File",
+        "type": "debugpy",
+        "request": "launch",
+        "program": "${file}",
+        "console": "integratedTerminal",
+        "justMyCode": true
+      },
+      {
+        "name": "Python: Main File",
+        "type": "debugpy",
+        "request": "launch",
+        "program": "${workspaceFolder:Source}/main.py",
+        "console": "integratedTerminal",
+        "justMyCode": true
+      }
     ],
     "settings": {
         "settings": {

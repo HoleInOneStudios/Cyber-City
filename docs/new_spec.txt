@@ -1,0 +1,13 @@
+A game that is based off MAGIC THE GATHERING, RISK, and DUNDGEONS AND DRAGONS, but themed around attacking and defending different critial infrastructures commonly found in cities.
+
+This game is a card game with dice. You win by having the most districts under your control. This is a 2 player game. 1 is the hacker and plays the attack cards and the other is the defender who plays the defense cards.
+
+On each turn, starting with the defender, the players choose which cards to play and which districts to target. This is done in secret. This is known as the deployment stage.
+
+After both players have played their actions, we go to the action phase. During this phase each district is fought over using the cards that are attached and the winner either keeps or gains that district. This is decided by a weighted random number generator.
+
+Before the next deployment stage, each player gains new cards so that they have ___ cards.
+
+## EXPANSIONS
+
+possibly event cards that randomly happen

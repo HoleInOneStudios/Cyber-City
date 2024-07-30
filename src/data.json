@@ -1,0 +1,128 @@
+{
+    "Districts": [
+        "Business",
+        "Hospital",
+        "Fire/Police",
+        "Industrial",
+        "University",
+        "Housing",
+        "Fort Sam",
+        "Traffic Lights"
+    ],
+    "Cards": [
+        {
+            "role": "offense",
+            "name": "Firewall",
+            "value": 34,
+            "odds": 1.7
+        },
+        {
+            "role": "offense",
+            "name": "Virus Protection",
+            "value": 21,
+            "odds": 1.7
+        },
+        {
+            "role": "offense",
+            "name": "Intrusion Detection System",
+            "value": 31,
+            "odds": 1.7
+        },
+        {
+            "role": "offense",
+            "name": "User Training",
+            "value": 27,
+            "odds": 1.7
+        },
+        {
+            "role": "offense",
+            "name": "Encryption",
+            "value": 25,
+            "odds": 1.7
+        },
+        {
+            "role": "offense",
+            "name": "Multi-Factor Authentication",
+            "value": 29,
+            "odds": 1.7
+        },
+        {
+            "role": "offense",
+            "name": "Security Audit",
+            "value": 33,
+            "odds": 1.7
+        },
+        {
+            "role": "offense",
+            "name": "Patch Management",
+            "value": 26,
+            "odds": 1.7
+        },
+        {
+            "role": "offense",
+            "name": "AI Monitoring",
+            "value": 32,
+            "odds": 1.7
+        },
+        {
+            "role": "offense",
+            "name": "Network Segmentation",
+            "value": 28,
+            "odds": 1.7
+        },
+        {
+            "role": "defense",
+            "name": "Phishing",
+            "value": 34,
+            "odds": 1
+        },
+        {
+            "role": "defense",
+            "name": "Virus",
+            "value": 29,
+            "odds": 1
+        },
+        {
+            "role": "defense",
+            "name": "Malware",
+            "value": 26,
+            "odds": 1
+        },
+        {
+            "role": "defense",
+            "name": "Ransomware",
+            "value": 31,
+            "odds": 1
+        },
+        {
+            "role": "defense",
+            "name": "DDoS Attack",
+            "value": 28,
+            "odds": 1
+        },
+        {
+            "role": "defense",
+            "name": "SQL Injection",
+            "value": 27,
+            "odds": 1
+        },
+        {
+            "role": "defense",
+            "name": "Zero-Day Exploit",
+            "value": 30,
+            "odds": 1
+        },
+        {
+            "role": "defense",
+            "name": "Brute Force Attack",
+            "value": 25,
+            "odds": 1
+        },
+        {
+            "role": "defense",
+            "name": "Trojan",
+            "value": 28,
+            "odds": 1
+        }
+    ]
+}
