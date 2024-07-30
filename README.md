@@ -1,46 +1,17 @@
-# Battle-for-Cyber-City
+# Repo-Template
 
-- [Battle-for-Cyber-City](#battle-for-cyber-city)
-  - [The Team](#the-team)
-  - [Instructions for Development](#instructions-for-development)
-    - [Installing New Dependencies](#installing-new-dependencies)
-    - [Github Instructions](#github-instructions)
-    - [Folder Structure](#folder-structure)
-  - [Design](#design)
-  - [PLC Mappings](#plc-mappings)
+This template has undergone many revisions, so repositories using it may differ. Not all elements here are necessary, and some may be redundant. Updates to this template will not be propagated to existing repositories due to time and effort constraints.
 
-## The Team
+## Folder Structure
 
-- Lead Developer 💻 `Benjamin` [@HoleInOneGolfer](https://www.github.com/HoleInOneGolfer)
-- Game Developer 💻 `Rishi` [@rishih](https://www.github.com/Rishi-prog731)
-- Lead Designer 🎨 `Roland`
+- `/`: Contains essential root files (e.g., `README.md`, `.gitignore`, workspace file).
+- `/src`: All project source code resides here. Builds will focus on this directory.
+- `/docs`: Contains project documentation. By default, it includes a workflow to set up GitHub Pages, but additional configuration in settings might be required.
+- `/.github`: Contains GitHub-related configurations (e.g., workflows, templates, configs).
 
-## Instructions for Development
+## Workflows
 
-- Create a virtual environment in `src` using `python -m venv .venv`
-- `cd` into `src`
-- Activate the virtual environment using `.venv\Scripts\activate` or `.venv/bin/activate`
-- Install the dependencies using `pip install -r requirements.txt`
-
-### Installing New Dependencies
-
-- Run `pip freeze > requirements.txt` to update the `requirements.txt` file
-
-### Github Instructions
-
-- Keep changes in a branch and merge into `main` when ready
-
-### Folder Structure
-
-- The `src` directory stores all the development files.
-- The `doc` directory stores all the documentation files.
-
-## Design
-
-UX: [Figma.com](https://www.figma.com/file/mn40OqTiIRspf0wprOv92w/Cyber-City-Range?node-id=0%3A1&t=ArfQfiEURLy880xD-1)
-
-Game: [Google Sheet](https://docs.google.com/spreadsheets/d/1fAyjl4c2pVBRPMtv6dN021eSeIyQtpjlF3AOrqUOK1o/edit)
-
-## PLC Mappings
-
-> WIP
+- Greetings
+- Labels
+- Pages
+- Stale

@@ -1,0 +1,9 @@
+# .github/labeler.yml
+
+pulls:
+  # Add your label rules here
+  # Example:
+  # - label: "bug"
+  #   paths:
+  #     - "**/*bug*"
+  #     - "**/*fix*"
